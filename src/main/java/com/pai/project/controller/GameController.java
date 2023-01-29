@@ -49,7 +49,7 @@ public class GameController {
 
         MediaType contentType = MediaType.APPLICATION_JSON;
         try {
-            appServiceService.checkBookSubscriptions(authentication.getName());
+            appServiceService.checkGameSubscriptions(authentication.getName());
             String nameForGame = gameService.getNameForGame(id).trim().strip();
             String headerValue = "attachment: filename=" + nameForGame + ".txt";
             FileInputStream fileInputStream = gameService.downloadGame(id);

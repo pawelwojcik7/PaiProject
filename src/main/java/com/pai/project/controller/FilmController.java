@@ -50,7 +50,7 @@ public class FilmController {
 
         MediaType contentType = MediaType.APPLICATION_JSON;
         try {
-            appServiceService.checkBookSubscriptions(authentication.getName());
+            appServiceService.checkFilmSubscriptions(authentication.getName());
             String nameForFilm = filmService.getNameForFilm(id).trim().strip();
             String headerValue = "attachment: filename=" + nameForFilm + ".txt";
             FileInputStream fileInputStream = filmService.downloadFilm(id);
