@@ -27,7 +27,7 @@ public class AuthController {
 
 
     @PostMapping(value = "/authenticate")
-    @Operation(summary = "Logowanie użytkownika - wygenerowanie tokena")
+    @Operation(summary = "Login user and return JWT Token")
     public ResponseEntity<?> loginAppUser(@RequestBody JwtRequest authRequest) {
 
         try {
@@ -40,7 +40,7 @@ public class AuthController {
     }
 
     @PostMapping(value = "/register")
-    @Operation(summary = "Rejestracja użytkownika")
+    @Operation(summary = "Register user")
     public ResponseEntity<?> registerAppUser(@RequestBody UserDto user) {
 
         try {
@@ -55,7 +55,7 @@ public class AuthController {
 
     @SecurityRequirement(name = "Bearer Authentication")
     @PutMapping("/changePassword")
-    @Operation(summary = "Zmiana hasła użytkownika aktualnego tokena")
+    @Operation(summary = "Change password")
     public ResponseEntity<?> changePassword(@RequestBody ChangePasswordDto changePasswordDto, Authentication authentication) {
 
         try {
