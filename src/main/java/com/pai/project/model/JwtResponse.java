@@ -1,6 +1,8 @@
 package com.pai.project.model;
 
-import lombok.*;
+import lombok.Getter;
+import lombok.RequiredArgsConstructor;
+import lombok.Setter;
 
 import java.io.Serializable;
 

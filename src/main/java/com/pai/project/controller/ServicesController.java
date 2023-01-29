@@ -7,7 +7,6 @@ import io.swagger.v3.oas.annotations.enums.SecuritySchemeIn;
 import io.swagger.v3.oas.annotations.enums.SecuritySchemeType;
 import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import io.swagger.v3.oas.annotations.security.SecurityScheme;
-import jdk.jshell.JShell;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.Authentication;
@@ -59,7 +58,7 @@ public class ServicesController {
     @Operation(summary = "List of all services")
     public ResponseEntity<List<AppService>> getAll() {
 
-       return ResponseEntity.ok(appServiceService.getAll());
+        return ResponseEntity.ok(appServiceService.getAll());
 
     }
 

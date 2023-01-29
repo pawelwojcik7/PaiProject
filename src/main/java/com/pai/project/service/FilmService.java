@@ -21,10 +21,10 @@ public class FilmService {
 
     public FileInputStream downloadFilm(Long id) throws IOException {
         Optional<Film> byId = filmRepository.findById(id);
-        if(byId.isEmpty()) throw new RuntimeException("Film does not exist");
-        else{
+        if (byId.isEmpty()) throw new RuntimeException("Film does not exist");
+        else {
             Film film = byId.get();
-            File file = new File(film.getName().trim()+".txt");
+            File file = new File(film.getName().trim() + ".txt");
             FileWriter output = new FileWriter(file);
             output.write(film.getName() + " - " + film.getDescription());
             output.close();
@@ -35,7 +35,7 @@ public class FilmService {
 
     public String getNameForFilm(Long id) {
         Optional<Film> byId = filmRepository.findById(id);
-        if(byId.isEmpty()) throw new RuntimeException("Film does not exist");
+        if (byId.isEmpty()) throw new RuntimeException("Film does not exist");
         else return byId.get().getName();
     }
 

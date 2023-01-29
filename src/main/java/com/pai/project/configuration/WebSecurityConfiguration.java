@@ -38,24 +38,27 @@ public class WebSecurityConfiguration extends WebSecurityConfigurerAdapter {
     @Override
     public void configure(WebSecurity web) {
         web.ignoring().mvcMatchers(HttpMethod.OPTIONS, "/**");
-        web.ignoring().mvcMatchers("**/swagger-ui/**","/swagger-ui/index.css","/swagger-ui/swagger-initializer.js","/swagger-ui/index.html", "/configuration/**", "/swagger-resources/**", "/v2/api-docs","/webjars/**");
-        web.ignoring().antMatchers("**/swagger-ui/**","/swagger-ui/index.css","/swagger-ui/swagger-initializer.js","/swagger-ui/index.html", "/configuration/**", "/swagger-resources/**", "/v2/api-docs","/webjars/**");
+        web.ignoring().mvcMatchers("**/swagger-ui/**", "/swagger-ui/index.css", "/swagger-ui/swagger-initializer.js", "/swagger-ui/index.html", "/configuration/**", "/swagger-resources/**", "/v2/api-docs", "/webjars/**");
+        web.ignoring().antMatchers("**/swagger-ui/**", "/swagger-ui/index.css", "/swagger-ui/swagger-initializer.js", "/swagger-ui/index.html", "/configuration/**", "/swagger-resources/**", "/v2/api-docs", "/webjars/**");
     }
+
     @Bean
     public PasswordEncoder passwordEncoder() {
         return new BCryptPasswordEncoder();
     }
+
     @Bean
     @Override
     public AuthenticationManager authenticationManagerBean()
             throws Exception {
         return super.authenticationManagerBean();
     }
+
     @Override
     protected void configure(HttpSecurity httpSecurity) throws Exception {
         httpSecurity.csrf().disable()
                 .authorizeRequests()
-                .antMatchers("/v3/api-docs/**","/authenticate", "/register", "/products/getAll","/products/getById**","/users/getAll","/swagger-ui/**", "/console**", "console/**")
+                .antMatchers("/v3/api-docs/**", "/authenticate", "/register", "/products/getAll", "/products/getById**", "/users/getAll", "/swagger-ui/**", "/console**", "console/**")
                 .permitAll()
                 .anyRequest().authenticated().and()
                 .exceptionHandling()
